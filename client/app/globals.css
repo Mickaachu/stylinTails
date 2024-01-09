@@ -16,18 +16,24 @@ h2 {
   font-weight: bold;
 }
 p {
-  font-size: 18px;
+  font-size: 16px;
+}
+input {
+ border : 1px solid black;
+ padding: 5px;
+ border-radius: 10px;
+
 }
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 54px;
-  }
-  h2 {
     font-size: 48px;
   }
-  h3 {
+  h2 {
     font-size: 36px;
+  }
+  h3 {
+    font-size: 25px;
   }
   h4 {
     font-size: 32px;
@@ -36,7 +42,7 @@ p {
     font-size: 28px;
   }
   p {
-    font-size: 16px;
+    font-size: 20px;
   }
   
 }

@@ -3,11 +3,12 @@ import AboutSection from "./home/AboutSection";
 import CountSection from "./home/CountSection";
 import WhatWeDoSection from "./home/WhatWeDoSection";
 import CalltoAction from "./common/CalltoAction";
-
+import Header from "./common/Header";
 export {
     HeroSection,
     AboutSection,
     CountSection,
     WhatWeDoSection,
-    CalltoAction
+    CalltoAction,
+    Header
 }
