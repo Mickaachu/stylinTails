@@ -4,11 +4,13 @@ import CountSection from "./home/CountSection";
 import WhatWeDoSection from "./home/WhatWeDoSection";
 import CalltoAction from "./common/CalltoAction";
 import Header from "./common/Header";
+import LoginPage from "./login/LoginPage";
 export {
     HeroSection,
     AboutSection,
     CountSection,
     WhatWeDoSection,
     CalltoAction,
-    Header
+    Header,
+    LoginPage
 }

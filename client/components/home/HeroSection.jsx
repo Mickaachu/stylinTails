@@ -11,7 +11,6 @@ function HeroSection() {
       <Link href="/register" className="bg-[#00FFF0] max-w-[326px] font-bold py-2 px-4 rounded-full">
         Set an Appointment now!
       </Link>
-        
      </div>
      <div className="hidden lg:block mt-40">
       <Image src={Images.doghero} alt="cute dog sitting" width={439} heigh={616}/>
