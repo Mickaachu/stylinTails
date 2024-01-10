@@ -1,7 +1,7 @@
 import { Lexend } from 'next/font/google'
 import './globals.css'
 const lexend = Lexend({subsets: ['latin']})
-import { Header } from '@/components'
+import { Header, Footer } from '@/components'
 
 export const metadata = {
   title: 'Stylin Tails',
@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
       <body className={lexend.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )

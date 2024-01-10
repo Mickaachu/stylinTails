@@ -3,7 +3,7 @@ import close from '@/public/assets/icons/close.png';
 import earCleaning from '@/public/assets/icons/earCleaning.png';
 import facebook from '@/public/assets/icons/facebook.png';
 import instagram from '@/public/assets/icons/instagram.png';
-import footerLogo from '@/public/assets/icons/logo.png';
+import footerLogo from '@/public/assets/icons/footerLogo.png';
 import fullGrooming from '@/public/assets/icons/fullGrooming.png';
 import google from '@/public/assets/icons/google.png';
 import logo from '@/public/assets/icons/logo.png';

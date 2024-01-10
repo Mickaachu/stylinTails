@@ -5,6 +5,7 @@ import WhatWeDoSection from "./home/WhatWeDoSection";
 import CalltoAction from "./common/CalltoAction";
 import Header from "./common/Header";
 import LoginPage from "./login/LoginPage";
+import Footer from "./common/Footer";
 export {
     HeroSection,
     AboutSection,
@@ -12,5 +13,6 @@ export {
     WhatWeDoSection,
     CalltoAction,
     Header,
-    LoginPage
+    LoginPage,
+    Footer
 }
