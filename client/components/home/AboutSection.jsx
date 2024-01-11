@@ -1,7 +1,7 @@
 
 function AboutSection() {
   return (
-    <div className="bg-[#F2F2F2] flex flex-col  mt-4 mb-4 md:mt-40 md:flex-row-reverse min-h-[70vh] ">
+    <div className="bg-[#F2F2F2] flex flex-col md:flex-row-reverse min-h-[70vh] ">
       <div className="flex flex-col  px-8 pt-11  pb-8  md:w-[60%] md:pt-20">
         <h2 >About Us</h2>
         <p className="max-w-[672px]">
