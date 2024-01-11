@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Images } from "@/constants"
+import { Button } from "@/components"
 import Link from "next/link"
 
 function HeroSection() {
@@ -8,8 +9,8 @@ function HeroSection() {
      <div className="flex flex-col gap-6 mt-24 lg:mt-0">
       <h1 className="max-w-[590px]">The best way to make your pet look and feel its best.
       </h1>
-      <Link href="/register" className="bg-[#00FFF0] text-center max-w-[326px] font-bold py-2 px-4 rounded-full">
-        Set an Appointment now!
+      <Link href="/register" >
+        <Button text="Book an Appointment now!" type="primary"/>
       </Link>
      </div>
      <div className="hidden lg:block mt-40">

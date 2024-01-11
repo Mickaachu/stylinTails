@@ -8,6 +8,7 @@ import LoginPage from "./login/LoginPage";
 import Footer from "./common/Footer";
 import AboutHeroSection from "./about/AboutHeroSection";
 import StaffSection from "./about/StaffSection";
+import Button from "./common/Button";
 export {
     HeroSection,
     AboutSection,
@@ -18,5 +19,6 @@ export {
     LoginPage,
     Footer,
     AboutHeroSection,
-    StaffSection
+    StaffSection,
+    Button
 }

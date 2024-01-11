@@ -1,3 +1,4 @@
+import { Button } from "@/components"
 
 function AboutSection() {
   return (
@@ -7,9 +8,8 @@ function AboutSection() {
         <p className="max-w-[672px]">
           Stylin Tails is a full-service pet grooming salon dedicated to providing your furry friends with the highest quality of care. We use only the best products and techniques to ensure that your pet's coat is clean, healthy, and stylish. <br /> <br />We also take the time to get to know your pet and their individual needs.
         </p>
-        <button className="bg-[#00FFF0] mt-6 font-semibold py-2 px-4 rounded-full max-w-[326px]">
-          Set an Appointment now!
-        </button>
+        
+        <Button text="Book an Appointment now!" type="primary"/>
       </div>
       <div className="bg-[url('../public/assets/Images/aboutUs.jpg')] min-h-[60vh] md:w-[40%] md:bg-center md:h-auto bg-cover">
         
