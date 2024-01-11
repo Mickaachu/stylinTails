@@ -18,7 +18,7 @@ h2 {
 p {
   font-size: 16px;
 }
-input {
+input, textarea {
  border : 1px solid black;
  padding: 5px;
  border-radius: 10px;

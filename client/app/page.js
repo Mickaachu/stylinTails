@@ -7,7 +7,7 @@ export default function Home() {
       <CountSection />
       <AboutSection />
       <WhatWeDoSection />
-      <CalltoAction />
+      
     </main>
   )
 }

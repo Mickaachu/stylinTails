@@ -7,6 +7,7 @@ import signupBG from '@/public/assets/Images/signupBG.jpg';
 import staff1 from '@/public/assets/Images/staff1.png';
 import staff2 from '@/public/assets/Images/staff2.png';
 import staff3 from '@/public/assets/Images/staff3.png';
+import ContactUs from '@/public/assets/Images/ContactDog.png';
 export default {
     aboutUs,
     doghero,
@@ -16,5 +17,6 @@ export default {
     signupBG,
     staff1,
     staff2,
-    staff3
+    staff3,
+    ContactUs
 }
