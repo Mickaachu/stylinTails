@@ -7,7 +7,7 @@ function Footer() {
     <div className="bg-[#A3DAF3] flex flex-col justify-center items-center py-11 px-8 gap-14 md:flex-row md:justify-evenly ">
       <div>
         <Image src={Icons.footerLogo} alt="StylinTails" width={286} height={128} />
-        <p className="max-w-[400px]">Stylin Tails is a full-service pet grooming salon dedicated to providing your furry friends with the highest quality of care. We use only the best products and techniques to ensure that your pet's coat is clean, healthy, and stylish. </p>
+        <p className="max-w-[400px]">Stylin Tails is a full-service pet grooming salon dedicated to providing your furry friends with the highest quality of care. We use only the best products and techniques to ensure that your pet&#39;s coat is clean, healthy, and stylish. </p>
       </div>
       <div className="flex gap-5 md:gap-10">
         <div>

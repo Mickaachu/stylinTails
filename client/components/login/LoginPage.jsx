@@ -23,7 +23,7 @@ function LoginPage() {
     <div className="flex min-h-screen justify-center items-center pt-20 lg:justify-start ">
         <div className="hidden lg:flex bg-[url('../public/assets/Images/loginBG.jpg')] bg-cover bg-center  w-[45vw] min-h-screen justify-center items-center bg-no-repeat relative">
             <p className="font-bold text-[40px] text-white max-w-[350px] relative z-10">
-              We're excited to see you again!
+              We&#39;re excited to see you again!
             </p>
             <div className="bg-black opacity-50 w-full h-full absolute top-0 bottom-0 left-0 right-0"></div>
         </div>
@@ -35,7 +35,7 @@ function LoginPage() {
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password"/>
                 <p>
-                    Don't have an account yet?<Link href="/register" className="text-[#CD53EC]"> Register here</Link>
+                    Don&#39;t have an account yet?<Link href="/register" className="text-[#CD53EC]"> Register here</Link>
                 </p>
                 
                 <button type="submit" className="bg-[#CD53EC] py-2 px-8 rounded-full ">Login</button>

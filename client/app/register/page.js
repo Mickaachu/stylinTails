@@ -4,7 +4,7 @@ function Register() {
     <div className="flex min-h-screen justify-center items-center pt-20 lg:justify-start ">
         <div className="hidden lg:flex bg-[url('../public/assets/Images/signupBG.jpg')] bg-cover bg-center  w-[45vw] min-h-screen justify-center items-center bg-no-repeat relative">
             <p className="font-bold text-[40px] text-white max-w-[320px] relative z-10">
-                We're here to help you make your pet's life the best it can be. Join now!
+                We&#39;re here to help you make your pet&#39;s life the best it can be. Join now!
             </p>
             <div className="bg-black opacity-50 w-full h-full absolute top-0 bottom-0 left-0 right-0"></div>
         </div>
