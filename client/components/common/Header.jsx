@@ -28,17 +28,17 @@ function Header() {
                     </div>
                     <div className="flex flex-col justify-center items-center mt-32 gap-5">
                         <Link href="/">Home</Link>
-                        <Link href="/">About</Link>
-                        <Link href="/">Contact</Link>
-                        <Link href="/" className="bg-[#CD53EC] py-2 px-8 rounded-full">Signup Now</Link>
+                        <Link href="/about">About</Link>
+                        <Link href="/contact">Contact</Link>
+                        <Link href="/register" className="bg-[#CD53EC] py-2 px-8 rounded-full">Signup Now</Link>
                     </div>
                 </div>
                 )}
             </div>
             <div className="hidden md:flex justify-center items-center gap-5 lg:gap-10 ">
                 <Link href="/">Home</Link>
-                <Link href="/">About</Link>
-                <Link href="/">Contact</Link>
+                <Link href="/about">About</Link>
+                <Link href="/contact">Contact</Link>
                 <Link href="/register" className="bg-[#CD53EC] py-2 px-8 rounded-full">Signup Now</Link>
             </div>
         </div>

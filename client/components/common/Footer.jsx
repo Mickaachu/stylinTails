@@ -17,16 +17,16 @@ function Footer() {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/">About us</Link>
+              <Link href="/about">About us</Link>
             </li>
             <li>
-              <Link href="/">Services</Link>
+              <a href="/about#whatwedo" >Services</a>
             </li>
             <li>
-              <Link href="/">Contact us</Link>
+              <Link href="/contact">Contact us</Link>
             </li>
             <li>
-              <Link href="/">Booking</Link>
+              <Link href="/register">Booking</Link>
             </li>
           </ul>
         </div>

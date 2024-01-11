@@ -2,7 +2,7 @@ import Card from "../common/Card"
 import { Icons } from "@/constants"
 function WhatWeDoSection() {
   return (
-    <div className="py-5 px-3 flex flex-col justify-center items-center gap-20 md:py-20">
+    <div className="py-5 px-3 flex flex-col justify-center items-center gap-20 md:py-20" id="whatwedo">
       <h2>What we do</h2>
       <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-5 justify-center items-center">
         <Card image={Icons.bathAndBrush} title="Bath and Brush" description="This is a great option for pets that don't need a full haircut. It includes a bath, brush-out, and nail trim." />
