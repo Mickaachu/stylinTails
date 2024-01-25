@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link"
 import {useState, useEffect} from "react"
-
-
+import { postData } from "@/util/useFetch";
 function LoginPage() {
     const [loginData, setLoginData] = useState({
         email: "",
@@ -11,14 +10,10 @@ function LoginPage() {
 
     const handleChange = (e) => {
         e.preventDefault()
-        setLoginData({
-            email: e.target.email.value,
-            password: e.target.password.value
-        })
+        postData("login", loginData)
         
     }
-
-    
+   
   return (
     <div className="flex min-h-screen justify-center items-center pt-20 lg:justify-start ">
         <div className="hidden lg:flex bg-[url('../public/assets/Images/loginBG.jpg')] bg-cover bg-center  w-[45vw] min-h-screen justify-center items-center bg-no-repeat relative">
@@ -31,9 +26,17 @@ function LoginPage() {
             <h1>Login</h1>
             <form className="flex flex-col gap-4 justify-center" onSubmit={handleChange}>
                 <label htmlFor="email">Email Address</label>
-                <input type="email" name="email" className="min-w-[300px]"/>
+                <input type="email" name="email" className="min-w-  [300px]" 
+                    onChange={(e) => setLoginData({
+                        ...loginData,
+                        [e.target.name]: e.target.value
+                    })}
+                />
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password"/>
+                <input type="password" name="password" onChange={(e) => setLoginData({
+                    ...loginData,
+                    [e.target.name]: e.target.value
+                })} />
                 <p>
                     Don&#39;t have an account yet?<Link href="/register" className="text-[#CD53EC]"> Register here</Link>
                 </p>

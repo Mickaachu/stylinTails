@@ -5,7 +5,7 @@ function Login() {
     console.log(data)
   }
   return (
-    <LoginPage />
+    <LoginPage/>
   )
 }
 
