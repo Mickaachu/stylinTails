@@ -9,6 +9,9 @@ import Footer from "./common/Footer";
 import AboutHeroSection from "./about/AboutHeroSection";
 import StaffSection from "./about/StaffSection";
 import Button from "./common/Button";
+import RegisterPage from "./register/RegisterPage";
+import DashboardPage from "./dashboard/DashboardPage";
+
 export {
     HeroSection,
     AboutSection,
@@ -20,5 +23,7 @@ export {
     Footer,
     AboutHeroSection,
     StaffSection,
-    Button
+    Button,
+    RegisterPage,
+    DashboardPage
 }

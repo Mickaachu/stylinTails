@@ -2,15 +2,25 @@
 import Link from "next/link"
 import {useState, useEffect} from "react"
 import { postData } from "@/util/useFetch";
+import { useRouter } from "next/navigation";
+
 function LoginPage() {
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
     })
 
+    const router = useRouter()
+
     const handleChange = (e) => {
         e.preventDefault()
-        postData("login", loginData)
+        postData("login", loginData).then((data)=> {
+            if(data.error) {
+                console.log(data.error)
+            } else {
+                router.push("/dashboard")
+            }
+        })
         
     }
    
