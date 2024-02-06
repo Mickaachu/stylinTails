@@ -10,6 +10,9 @@ const addPet = async (req, res) => {
 
     const newPet = new Pet({name, breed, owner:user})
     await newPet.save()
+    const userPets = await User.findById(user)
+    userPets.pets.push(newPet._id)
+    await userPets.save()
     res.json({message: "Pet added successfully"})
 
     } catch (error) {
