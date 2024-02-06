@@ -2,12 +2,16 @@
 import Link from "next/link"
 import { useState, useEffect  } from "react";
 import { postData } from "../../util/useFetch";
+import { useRouter } from "next/navigation";
+import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider";
 function RegisterPage() {
     const [registerUser, setRegisterUser] = useState({
         name: "",
         email: "",
         password: ""
     })
+    const router = useRouter()
+    const {user} = useAuthContextProvider()
     const handleInputChange = (e) => {
         const {name, value} = e.target
         setRegisterUser({...registerUser, [name]: value})
@@ -17,6 +21,9 @@ function RegisterPage() {
         e.preventDefault()
         postData("register", registerUser)
     }
+    useEffect(() => {
+        if(user) router.push("/dashboard")
+    },[user])
 
     return (
         <div className="flex min-h-screen justify-center items-center pt-20 lg:justify-start ">

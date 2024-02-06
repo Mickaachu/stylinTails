@@ -1,6 +1,11 @@
-import React from 'react'
+'use client';
+
+import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider";
 
 function CalltoAction() {
+  const { user } = useAuthContextProvider();
+
+  if(user) return null;
   return (
     <div className="bg-[url('../public/assets/Images/cta-mobile.jpg')] md:bg-[url('../public/assets/Images/cta-desktop.jpg')] bg-center bg-cover min-h-[80vh] md:min-h-[40vh] flex flex-col justify-center items-center px-5 text-white relative gap-3 md:flex-row md:gap-7 md:py-[40px] md:px-10">
       <h2 className="relative z-10 max-w-[591px]">Your pet deserves to look and feel their best. Let us help!</h2>

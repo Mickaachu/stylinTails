@@ -33,39 +33,33 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
     try{
         const {email, password} = req.body
-        if(!email || !password) return res.json({message: "Please fill all the fields"})
+        
+        if(!email || !password) return res.json({error: "Please fill all the fields"})
 
         //check if user exist
         const user = await User.findOne({email})
-        if(!user) return res.json({message: "User does not exist"})
-        
+        if(!user) return res.json({error: "User does not exist"})
         //check if password is correct
 
         const passIsValid = await bcrypt.compare(password, user.password)
 
-        if(!passIsValid) return res.json({message: "Password is incorrect"})
+        if(!passIsValid) return res.json({error: "Password is incorrect"})
 
         const token = jwt.sign({id: user._id}, process.env.JWT_KEY, {expiresIn: "2h"})
-        res.cookie('token',token, {httpOnly: true});
-        res.json({message: "Login successful"})
+        
+        res.json({success: "Login successful", token, user: {_id: user._id}})
 
     }catch(error) {
+
+        
         console.log(error)
     }
 }
 
 const getUserInfo = async (req, res) => {
     try{
-        const token = req.cookies.token
-        if(!token) return res.json({message: "Unauthorized"})
+        console.log('get user info')
         
-        const user = jwt.verify(token, process.env.JWT_KEY)
-        if(!user) return res.json({message: "Unauthorized"})
-        const userInfo = await User.findById(user.id).select("-password")
-        res.json(userInfo)
-        
-
-
     }
     catch (error) {
         console.log(error)
@@ -75,5 +69,5 @@ const getUserInfo = async (req, res) => {
 
 
 export {
-    registerUser, loginUser,
+    registerUser, loginUser, getUserInfo
 }

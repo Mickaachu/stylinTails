@@ -1,8 +1,12 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Icons } from '@/constants'
-
+import { useAuthContextProvider } from '@/util/hooks/useAuthContextProvider'
 function Footer() {
+  const { user } = useAuthContextProvider()
+  if(user) return null;
   return (
     <div className="bg-[#A3DAF3] flex flex-col justify-center items-center py-11 px-8 gap-14 md:flex-row md:justify-evenly ">
       <div>

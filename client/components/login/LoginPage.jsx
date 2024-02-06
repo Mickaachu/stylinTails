@@ -1,29 +1,28 @@
 "use client";
 import Link from "next/link"
 import {useState, useEffect} from "react"
-import { postData } from "@/util/useFetch";
-import { useRouter } from "next/navigation";
-
+import { useRouter } from "next/navigation"
+import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider";
+import { useLogin } from "@/util/hooks/useLogin";
 function LoginPage() {
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
     })
-
     const router = useRouter()
-
-    const handleChange = (e) => {
+    const {user} = useAuthContextProvider()
+    
+    const {login, error, isLoading} = useLogin()
+    const handleChange = async (e) => {
         e.preventDefault()
-        postData("login", loginData).then((data)=> {
-            if(data.error) {
-                console.log(data.error)
-            } else {
-                router.push("/dashboard")
-            }
-        })
-        
+        await login(loginData)
+
     }
-   
+
+    useEffect(() => {
+        if(user) router.push("/dashboard")
+    }, [user])
+    
   return (
     <div className="flex min-h-screen justify-center items-center pt-20 lg:justify-start ">
         <div className="hidden lg:flex bg-[url('../public/assets/Images/loginBG.jpg')] bg-cover bg-center  w-[45vw] min-h-screen justify-center items-center bg-no-repeat relative">
@@ -34,6 +33,7 @@ function LoginPage() {
         </div>
         <div className="flex justify-center items-center flex-col  gap-5 w-screen lg:w-[55vw]">
             <h1>Login</h1>
+            {error && <p className="text-red-500">{error}</p>}
             <form className="flex flex-col gap-4 justify-center" onSubmit={handleChange}>
                 <label htmlFor="email">Email Address</label>
                 <input type="email" name="email" className="min-w-  [300px]" 

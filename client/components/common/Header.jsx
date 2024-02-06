@@ -2,14 +2,24 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-
+import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
 import { Icons } from "@/constants"
-
+import { useLogout } from "@/util/hooks/useLogout"
 function Header() {
     const [showMenu, setShowMenu] = useState(false)
+    const {user} = useAuthContextProvider()
+    const {logout} = useLogout()
     const handleMenu = () => {
         setShowMenu(!showMenu)
     }
+    const closeMenu = () => {
+        setShowMenu(false)
+    }
+    const handleLogout = () => {
+        setShowMenu(!showMenu)
+        logout()
+    }
+    
 
   return (
     <header className="pt-2 px-4 fixed w-full bg-white z-50 ">
@@ -27,20 +37,26 @@ function Header() {
                         </button>
                     </div>
                     <div className="flex flex-col justify-center items-center mt-32 gap-5">
-                        <Link href="/">Home</Link>
-                        <Link href="/about">About</Link>
-                        <Link href="/contact">Contact</Link>
-                        <Link href="/register" className="bg-[#CD53EC] py-2 px-8 rounded-full">Signup Now</Link>
+                        <Link onClick={closeMenu}  href="/">Home</Link>
+                        <Link onClick={closeMenu}   href="/about">About</Link>
+                        <Link onClick={closeMenu}  href="/contact">Contact</Link>
+                        {!user &&  <Link onClick={closeMenu}  href="/register" className="bg-[#CD53EC] py-2 px-8 rounded-full">Signup Now</Link>}
+                        {user &&  <Link onClick={closeMenu}  href="/dashboard">Dashboard</Link>}
+                        {user &&  <button onClick={handleLogout}>Log out</button>}
                     </div>
                 </div>
-                )}
+                )}  
             </div>
-            <div className="hidden md:flex justify-center items-center gap-5 lg:gap-10 ">
-                <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
-                <Link href="/contact">Contact</Link>
-                <Link href="/register" className="bg-[#CD53EC] py-2 px-8 rounded-full">Signup Now</Link>
-            </div>
+          
+                <div className="hidden md:flex justify-center items-center gap-5 lg:gap-10 ">
+                    <Link onClick={closeMenu}  href="/">Home</Link>
+                    <Link onClick={closeMenu}  href="/about">About</Link>
+                    <Link href="/contact" onClick={closeMenu}  >Contact</Link>
+                    { !user &&  <Link href="/register" className="bg-[#CD53EC] py-2 px-8 rounded-full" onClick={closeMenu}  >Signup Now</Link>}
+                    {user &&  <Link onClick={closeMenu}  href="/dashboard">Dashboard</Link>}
+                    {user &&  <button onClick={handleLogout}>Log out</button>}
+                </div>
+            
         </div>
     </header>
   )

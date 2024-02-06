@@ -1,8 +1,11 @@
-import React from 'react'
+'use client'
 
 function DashboardPage() {
+
   return (
-    <div>DashboardPage</div>
+    <div className="pt-28">
+      <h1>Hi User</h1>
+    </div>
   )
 }
 
