@@ -8,20 +8,20 @@ env.config()
 const registerUser = async (req, res) => {
     try{
         const {name, email, password} = req.body
-        if(!name || !email || !password) return res.json({message: "Please fill all the fields"})
+        if(!name || !email || !password) return res.json({error: "Please fill all the fields"})
 
 
         if(await User.findOne({email})) { //if user already exist
-            res.json({message: "User already exist"})
+            res.json({error: "User already exist"})
         }
 
-        if(password.length < 6) return res.json({message: "Password must be at least 6 characters"})
+        if(password.length < 6) return res.json({error: "Password must be at least 6 characters"})
 
         else{
             const hashedPassword = await bcrypt.hash(password, 10)
             const user = new User({name, email, password: hashedPassword})
             await user.save()
-            res.json({message: "User created successfully"})
+            res.json({message: "User created successfully", user: {username: user.name, _id: user.id}})
 
 
         }
@@ -47,7 +47,7 @@ const loginUser = async (req, res) => {
 
         const token = jwt.sign({id: user._id}, process.env.JWT_KEY, {expiresIn: "2h"})
         
-        res.json({success: "Login successful", token, user: {_id: user._id}})
+        res.json({success: "Login successful", token, user: {username: user.name, _id: user.id}})
 
     }catch(error) {
 
@@ -56,18 +56,7 @@ const loginUser = async (req, res) => {
     }
 }
 
-const getUserInfo = async (req, res) => {
-    try{
-        console.log('get user info')
-        
-    }
-    catch (error) {
-        console.log(error)
-    }
-}
-
-
 
 export {
-    registerUser, loginUser, getUserInfo
+    registerUser, loginUser, 
 }

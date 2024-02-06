@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link"
 import { useState, useEffect  } from "react";
-import { postData } from "../../util/useFetch";
+import { useSignUp } from "@/util/hooks/useSignUp";
 import { useRouter } from "next/navigation";
 import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider";
 function RegisterPage() {
@@ -12,6 +12,7 @@ function RegisterPage() {
     })
     const router = useRouter()
     const {user} = useAuthContextProvider()
+    const {signUp, error, isLoading} = useSignUp()
     const handleInputChange = (e) => {
         const {name, value} = e.target
         setRegisterUser({...registerUser, [name]: value})
@@ -19,7 +20,9 @@ function RegisterPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        postData("register", registerUser)
+        signUp(registerUser)
+
+        
     }
     useEffect(() => {
         if(user) router.push("/dashboard")
@@ -35,6 +38,7 @@ function RegisterPage() {
             </div>
             <div className="flex justify-center items-center flex-col  gap-5 w-screen lg:w-[55vw]">
                 <h1>Sign up</h1>
+                {error && <p className="text-red-500">{error}</p>}
                 <form className="flex flex-col gap-4 justify-center" onSubmit={handleSubmit}>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" className="min-w-[300px]" onChange={e => handleInputChange(e)}/>

@@ -21,9 +21,14 @@ const UserSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Pet'
         }
+    ],
+    schedules: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Schedule'
+        }
     ]
-    
-    
+
 });
 
 const User = mongoose.model('User', UserSchema);

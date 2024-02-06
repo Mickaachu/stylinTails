@@ -1,11 +1,12 @@
 'use client'
 import { Button } from ".."
 import Table from "./Table"
+import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
 function DashboardPage() {
-
+  const { user } = useAuthContextProvider()
   return (
     <div className="pt-28 px-3 flex flex-col gap-4 justify-center items-center">
-      <h1>Hi User</h1>
+      <h1>Hi {user.user?.username}</h1>
       <div className="flex flex-col gap-2 max-w-72">
         <Button type="secondary">
           Schedule Appointment
