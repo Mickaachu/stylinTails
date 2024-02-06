@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Button({type,children}) {
+function Button({type,children, handleClick}) {
     const buttonStyles = (type) => {
         switch (type) {
             case 'primary':
@@ -16,7 +16,7 @@ function Button({type,children}) {
         }
     }
   return (
-    <button className={buttonStyles(type)}>
+    <button className={buttonStyles(type)} onClick={handleClick}>
         {children}
     </button>
   )

@@ -9,7 +9,7 @@ function AboutSection() {
           Stylin Tails is a full-service pet grooming salon dedicated to providing your furry friends with the highest quality of care. We use only the best products and techniques to ensure that your pet&#39;s coat is clean, healthy, and stylish. <br /> <br />We also take the time to get to know your pet and their individual needs.
         </p>
         
-        <Button text="Book an Appointment now!" type="primary"/>
+        <Button type="primary">Book an Appointment now!</Button>
       </div>
       <div className="bg-[url('../public/assets/Images/aboutUs.jpg')] min-h-[60vh] md:w-[40%] md:bg-center md:h-auto bg-cover">
         

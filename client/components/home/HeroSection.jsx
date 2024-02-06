@@ -10,7 +10,7 @@ function HeroSection() {
       <h1 className="max-w-[590px]">The best way to make your pet look and feel its best.
       </h1>
       <Link href="/register" >
-        <Button text="Book an Appointment now!" type="primary"/>
+        <Button  type="primary">Book an Appointment now!</Button>
       </Link>
      </div>
      <div className="hidden lg:block mt-40">

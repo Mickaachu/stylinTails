@@ -1,5 +1,6 @@
 import express from 'express';
 import UserRouter from './routes/User.js';
+import petRouter from './routes/Pet.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -19,6 +20,7 @@ app.use(cors(
 app.use(express.json());
 
 app.use('/', UserRouter)
+app.use('/', petRouter)
 
 const start = async () => {
     try{

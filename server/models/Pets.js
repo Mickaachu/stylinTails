@@ -8,9 +8,10 @@ const PetSchema = new mongoose.Schema({
         type: String
     },
     owner: {
-        type: moongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    
     
 
 });
