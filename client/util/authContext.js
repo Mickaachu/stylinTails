@@ -26,7 +26,6 @@ const AuthProvider = ({children}) => {
         if(user) {
             dispatch({type: 'LOGIN', payload: user})
         }
-        console.log('storedUser', user)
     },[])
     
     return (

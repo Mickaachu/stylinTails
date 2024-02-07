@@ -2,12 +2,11 @@ import { Button } from ".."
 import Image from "next/image"
 import {Icons} from '@/constants'
 import { useState } from "react" 
-import { useAddPet } from '@/util/hooks/useAddPet'
+
 import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
 
 
-function AddPet({state, handleClose}) {
-  const {addPet} = useAddPet()
+function AddPet({state, handleClose, addPet}) {
   const {user} = useAuthContextProvider()
   const [data, setData] = useState({
     name: "",

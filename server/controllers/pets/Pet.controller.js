@@ -13,12 +13,25 @@ const addPet = async (req, res) => {
     const userPets = await User.findById(user)
     userPets.pets.push(newPet._id)
     await userPets.save()
-    res.json({message: "Pet added successfully"})
+    const petList = await User.findById(user).populate('pets')
+
+    res.json({message: "Pet added successfully", pets: petList.pets})
 
     } catch (error) {
         console.log(error)
         res.json({Error: "An error occured"})
     }
 }
+const getUserPets = async (req, res) => {
+    try {
+        const {id} = req.params
+        const user = await User.findById(id).populate('pets')
+        res.json(user.pets)
+    }
+    catch (error) {
+        console.log(error)
+        res.json({error: "An error occured"})
+    }
+}
 
-export { addPet };
+export { addPet, getUserPets };

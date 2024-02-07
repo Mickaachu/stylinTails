@@ -11,7 +11,8 @@ import StaffSection from "./about/StaffSection";
 import Button from "./common/Button";
 import RegisterPage from "./register/RegisterPage";
 import DashboardPage from "./dashboard/DashboardPage";
-
+import DashboardHeader from "./common/DashboardHeader";
+import DynamicHeader from "./DynamicHeader";
 export {
     HeroSection,
     AboutSection,
@@ -25,5 +26,7 @@ export {
     StaffSection,
     Button,
     RegisterPage,
-    DashboardPage
+    DashboardPage,
+    DashboardHeader,
+    DynamicHeader
 }

@@ -1,7 +1,7 @@
 import { Lexend } from 'next/font/google'
 import './globals.css'
 import { AuthProvider } from '@/util/authContext'
-import { Header, Footer, CalltoAction } from '@/components'
+import {  Footer, CalltoAction, DynamicHeader } from '@/components'
 
 const lexend = Lexend({subsets: ['latin']})
 export const metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth" >
       <body className={lexend.className}>
         <AuthProvider>
-          <Header />
+          <DynamicHeader />
           {children} 
           <CalltoAction />
           <Footer />
