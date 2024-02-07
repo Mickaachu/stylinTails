@@ -5,11 +5,11 @@ import Table from "./Table"
 import PetTable from './PetTable'
 import AddPet from "./AddPet"
 import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
-import { useAddPet } from '@/util/hooks/useAddPet'
+import { usePets } from '@/util/hooks/usePets'
 
 function DashboardPage() {
   const [showTable, setShowTable] = useState(false)
-  const { handleModal, show, addPet, pets } = useAddPet()
+  const { handleModal, show, addPet, pets, deletePet } = usePets()
   const { user } = useAuthContextProvider()
 
   
@@ -42,7 +42,7 @@ function DashboardPage() {
         <div>
           <h2 className="text-lg">Pets</h2>
           <div className="flex items-center justify-center h-full">
-            <PetTable data={pets}/>  
+            <PetTable data={pets} deletePet={deletePet} user={user}/>  
           </div>
         </div>
       )}

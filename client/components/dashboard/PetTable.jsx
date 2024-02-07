@@ -1,5 +1,9 @@
-function PetTable({data}) {
+function PetTable({data, deletePet, editPet, user}) {
     
+    const handleDelete = (user,id) => {
+        deletePet(user,id)
+    }
+
   return (
     <div className="container">
         <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
@@ -27,7 +31,7 @@ function PetTable({data}) {
                             <td className="border-grey-light border p-3 min-w-48">{pet.name}</td>
                             <td className="border-grey-light border p-3 truncate min-w-48">{pet.breed}</td>
                             <td className="border-grey-light border p-3 min-w-48 flex justify-evenly">
-                                <button className="bg-red-400 px-4  rounded-full">Delete</button>
+                                <button className="bg-red-400 px-4  rounded-full" onClick={() => handleDelete(user.user?._id, pet._id)}>Delete</button>
                                 <button className="bg-[#CD53EC] px-4  rounded-full">Edit</button>
                             </td>
                             
