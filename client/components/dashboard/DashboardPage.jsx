@@ -9,7 +9,7 @@ import { usePets } from '@/util/hooks/usePets'
 
 function DashboardPage() {
   const [showTable, setShowTable] = useState(false)
-  const { handleModal, show, addPet, pets, deletePet } = usePets()
+  const { handleModal, show, addPet, pets, deletePet, updatePet } = usePets()
   const { user } = useAuthContextProvider()
 
   
@@ -42,7 +42,7 @@ function DashboardPage() {
         <div>
           <h2 className="text-lg">Pets</h2>
           <div className="flex items-center justify-center h-full">
-            <PetTable data={pets} deletePet={deletePet} user={user}/>  
+            <PetTable data={pets} deletePet={deletePet} updatePet={updatePet} user={user}/>  
           </div>
         </div>
       )}

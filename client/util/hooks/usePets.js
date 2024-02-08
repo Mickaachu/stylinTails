@@ -68,10 +68,24 @@ export const usePets = () => {
             setPets(response.data.pets)
         }
     }
+    const updatePet = async (data) => {
+        setIsLoading(true);
+        setError(null);
+        const response = await axios.put('http://localhost:8000/updatePet', data);
+        
+        if(response.data.error) {
+            setError(response.data.error);
+            setIsLoading(false);
+        }
+        else {
+            setIsLoading(false);
+            setPets(response.data.pets)
+        }
+    }
 
    
     
-    return {show, handleModal, addPet, error, isLoading, getPets, pets, deletePet};
+    return {show, handleModal, addPet, error, isLoading, getPets, pets, deletePet, updatePet};
 
 }
 

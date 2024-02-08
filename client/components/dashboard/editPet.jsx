@@ -1,24 +1,36 @@
 import { Button } from ".."
 import Image from "next/image"
 import {Icons} from '@/constants'
-import { useState } from "react" 
+import { useState, useEffect } from "react" 
 
 import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
 
 
-function AddPet({state, handleClose, addPet, petName, petBreed}) {
+
+function EditPet({state, handleClose, petId, petName, petBreed , updatePet}) {
   const {user} = useAuthContextProvider()
   const [data, setData] = useState({
-    name: "" ,
-    breed: "" ,
-    user: user.user?._id
+    name: petName,
+    breed: petBreed,
+    user: user.user?._id,
+    _id: petId
   })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await addPet(data)
+    await updatePet(data)
     handleClose()
   }
+
+  useEffect(() => {
+    setData({
+      name: petName,
+      breed: petBreed,
+      user: user.user?._id,
+      _id: petId
+    })
+  },[petName, petBreed, petId])
+  
 
   if(state === false) return null
   return (
@@ -32,14 +44,14 @@ function AddPet({state, handleClose, addPet, petName, petBreed}) {
       <form action="#" method="POST" className="flex flex-col gap-2" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2">
           <label htmlFor="name">Pet Name</label>
-          <input type="text" name="name" id="name" onChange={(e) => {setData({...data, [e.target.name] : e.target.value})}} />
+          <input type="text" name="name" defaultValue={petName} id="name" onChange={(e) => {setData({...data, [e.target.name] : e.target.value})}} />
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="breed">
             Breed
           </label>
           <p className="text-[10px]">if you don't know, please leave it empty</p>
-          <input type="text" name="breed" id="breed" onChange={(e) => {setData({...data, [e.target.name] : e.target.value})}} />
+          <input type="text" defaultValue={petBreed} name="breed" id="breed" onChange={(e) => {setData({...data, [e.target.name] : e.target.value})}} />
         </div>
 
         <Button>Submit</Button>
@@ -48,4 +60,4 @@ function AddPet({state, handleClose, addPet, petName, petBreed}) {
   )
 }
 
-export default AddPet
+export default EditPet

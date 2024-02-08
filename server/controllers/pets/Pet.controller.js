@@ -48,5 +48,25 @@ const deletePet = async (req, res) => {
         res.json({error: "An error occured"})
     }
 }
+const updatePet = async (req, res) => {
+    try {
+        const {_id, name, breed, user} = req.body
 
-export { addPet, getUserPets, deletePet };
+       const petUpdate = await Pet.findByIdAndUpdate(_id, {name, breed}, {new: true})
+
+       const userToUpdate = await User.findById(user)
+       const petIndex = userToUpdate.pets.findIndex(pet => pet._id == _id)
+        userToUpdate.pets[petIndex] = petUpdate
+
+        await userToUpdate.save()
+
+        const petList = await User.findById(user).populate('pets')
+        res.json({message: "Pet updated successfully", pets: petList.pets})
+
+    } catch(error) {
+        console.log(error)
+        res.json({error: "An error occured"})
+    }
+}
+
+export { addPet, getUserPets, deletePet, updatePet };
