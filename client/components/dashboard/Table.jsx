@@ -35,8 +35,8 @@ function Table({data, deleteSchedule, user, pets, updateSchedule}) {
             <thead className="text-white">
                 {
                     data.map((index) => (
-                        <tr className="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                            <th className="p-3 text-left">Pet's Name</th>
+                        <tr key={index} className="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                            <th className="p-3 text-left">Pet&apos;s Name</th>
                             <th className="p-3 text-left">Time </th>
                             <th className="p-3 text-left" width="110px">Date</th>
                             <th className="p-3 text-left" width="110px">Service</th>

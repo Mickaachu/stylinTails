@@ -45,7 +45,7 @@ if(state === false) return null
         <h2>Edit</h2>
         <form action="#" method="POST" className="flex flex-col gap-2" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2">
-                <label htmlFor="petId">Schedule for </label>
+                <label htmlFor="petId">Schedule for</label>
                 <select name="petId" id="name" defaultValue={data.pet._id}  onChange={handleFormChange}>
                     
                     <option disabled >Select a pet</option>

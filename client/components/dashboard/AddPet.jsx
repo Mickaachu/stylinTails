@@ -38,7 +38,7 @@ function AddPet({state, handleClose, addPet, }) {
           <label htmlFor="breed">
             Breed
           </label>
-          <p className="text-[10px]">if you don't know, please leave it empty</p>
+          <p className="text-[10px]">if you don&apos;t leave it empty</p>
           <input type="text" name="breed" id="breed" onChange={(e) => {setData({...data, [e.target.name] : e.target.value})}} />
         </div>
 
