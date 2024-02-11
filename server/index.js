@@ -14,9 +14,8 @@ dotenv.config();
 app.use(cors(
     {
         origin: [
-            'https://stylin-tails.vercel.app', "stylin-tails-18i5rgb7g-mickaachu.vercel.app",
-            "stylin-tails-git-main-mickaachu.vercel.app",
-            "stylin-tails-ffv3kg7mw-mickaachu.vercel.app"
+            'https://stylin-tails.vercel.app',
+            "https://stylin-tails-19xle0ixg-mickaachu.vercel.app"
         ]
     }
 ));
