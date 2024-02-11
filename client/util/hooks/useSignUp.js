@@ -6,11 +6,12 @@ export const useSignUp = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const {dispatch} = useAuthContextProvider();
+    const apiRoute = 'https://stylin-tails-api.onrender.com'
 
     const signUp = async (data) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.post('http://localhost:8000/register', data);
+        const response = await axios.post(`${apiRoute}/register`, data);
         
         if(response.data.error) {
             setError(response.data.error);
