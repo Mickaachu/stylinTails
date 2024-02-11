@@ -22,12 +22,7 @@ const UserSchema = new mongoose.Schema({
             ref: 'Pet'
         }
     ],
-    schedules: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Schedule'
-        }
-    ]
+   
 
 });
 

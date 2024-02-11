@@ -1,6 +1,7 @@
 import express from 'express';
 import UserRouter from './routes/User.js';
 import petRouter from './routes/Pet.js';
+import scheduleRouter from './routes/Schedule.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use('/', UserRouter)
 app.use('/', petRouter)
+app.use('/', scheduleRouter)
 
 const start = async () => {
     try{

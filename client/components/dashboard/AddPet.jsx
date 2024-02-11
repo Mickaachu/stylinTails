@@ -6,7 +6,7 @@ import { useState } from "react"
 import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
 
 
-function AddPet({state, handleClose, addPet, petName, petBreed}) {
+function AddPet({state, handleClose, addPet, }) {
   const {user} = useAuthContextProvider()
   const [data, setData] = useState({
     name: "" ,

@@ -16,13 +16,6 @@ function PetTable({data, deletePet, user, updatePet}) {
         setPetData(editedData)
         handleModal()
     }
-
-    useEffect(()=> {
-
-    },[])
-    
-    
-
   return (
     <div className="container">
        {

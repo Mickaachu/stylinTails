@@ -7,9 +7,14 @@ import AddPet from "./AddPet"
 import { useAuthContextProvider } from "@/util/hooks/useAuthContextProvider"
 import { usePets } from '@/util/hooks/usePets'
 
+import Schedule from './Schedule'
+import { useSchedule } from '@/util/hooks/useSchedule'
+
+
 function DashboardPage() {
   const [showTable, setShowTable] = useState(false)
   const { handleModal, show, addPet, pets, deletePet, updatePet } = usePets()
+  const {handleShow, showModal, addSchedule, schedules, updateSchedule, deleteSchedule} = useSchedule()
   const { user } = useAuthContextProvider()
 
   
@@ -19,9 +24,10 @@ function DashboardPage() {
       <h1>Hi {user.user?.username}</h1>
       <div className="flex flex-col gap-2 max-w-72">
 
-        <Button type="secondary">
+        <Button type="secondary" handleClick={handleShow}>
           Schedule Appointment
         </Button>
+        <Schedule handleClose={handleShow} state={showModal} pets={pets} addSchedule={addSchedule} user={user} />
 
         <Button type="border-secondary" handleClick={handleModal} >
           Add Pet
@@ -30,15 +36,15 @@ function DashboardPage() {
         <AddPet  state={show} handleClose={handleModal} addPet={addPet}/>
       </div>
       <div className="flex gap-3">
-        <button onClick={() => setShowTable(false)} className={`underline ${showTable === false ? "text-[#bb41da] " : "text-black"}`}>
+        <button onClick={() => setShowTable(true)} className={`underline ${showTable === false ? "text-black " : "text-[#bb41da] "}`}>
           Pets
         </button>
-        <button onClick={() => setShowTable(true)}  className={`underline ${showTable === false ? "text-black" : "text-[#bb41da]"}`}>
+        <button onClick={() => setShowTable(false)}  className={`underline ${showTable === false ? "text-[#bb41da] " : "text-black"}`}>
           Appointment
         </button>
       </div>
 
-      {!showTable && (
+      {showTable && (
         <div>
           <h2 className="text-lg">Pets</h2>
           <div className="flex items-center justify-center h-full">
@@ -46,11 +52,11 @@ function DashboardPage() {
           </div>
         </div>
       )}
-      { showTable && (
+      {!showTable && (
         <div>
           <h2 className="text-lg">Appointments</h2>
           <div className="flex items-center justify-center h-full">
-            <Table />  
+            <Table data={schedules} user={user} pets={pets} updateSchedule={updateSchedule} deleteSchedule={deleteSchedule}/>  
           </div>
           
         </div>
