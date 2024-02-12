@@ -4,7 +4,7 @@ const nextConfig = {
         return [
             {
                 source: '/:path*',
-                destination: 'http://localhost:8000/path*',
+                destination: 'https://stylin-tails-api.onrender.com/path*',
             },
         ]
     }

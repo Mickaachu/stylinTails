@@ -5,11 +5,10 @@ export const useLogin = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const {dispatch} = useAuthContextProvider();
-    const apiRoute = 'https://stylin-tails-api.onrender.com'
     const login = async (data) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.post(`${apiRoute}/login`, data);
+        const response = await axios.post('https://stylin-tails-api.onrender.com/login', data);
         
         if(response.data.error) {
             setError(response.data.error);

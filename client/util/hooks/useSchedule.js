@@ -6,7 +6,7 @@ export const useSchedule = () => {
     const [isLoading, setIsLoading] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [schedules, setSchedules] = useState([]);
-    const apiRoute = 'https://stylin-tails-api.onrender.com'
+
     const { user } = useAuthContextProvider()
     const handleShow = () => {
         setShowModal(!showModal);
@@ -18,7 +18,7 @@ export const useSchedule = () => {
     const getAllSchedule = async () => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.get(`${apiRoute}/getAllSchedule/${user.user._id}`);
+        const response = await axios.get(`https://stylin-tails-api.onrender.com/getAllSchedule/${user.user._id}`);
         if(response.data.error) {
             setError(response.data.error);
             setIsLoading(false);
@@ -48,7 +48,7 @@ export const useSchedule = () => {
     const updateSchedule = async (data) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.put(`${apiRoute}/updateSchedule`, data);
+        const response = await axios.put('https://stylin-tails-api.onrender.com/updateSchedule', data);
         if(response.data.error) {
             setError(response.data.error);
             setIsLoading(false);
@@ -61,7 +61,7 @@ export const useSchedule = () => {
     const deleteSchedule = async (id) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.delete(`${apiRoute}/deleteSchedule/${id}`);
+        const response = await axios.delete(`https://stylin-tails-api.onrender.com/deleteSchedule/${id}`);
         if(response.data.error) {
             setError(response.data.error);
             setIsLoading(false);

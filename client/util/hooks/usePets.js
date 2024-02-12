@@ -7,7 +7,7 @@ export const usePets = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const [pets, setPets] = useState([]);
-    const apiRoute = 'https://stylin-tails-api.onrender.com'
+
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
        if(user) {
@@ -24,7 +24,7 @@ export const usePets = () => {
     const getPets = async (id) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.get(`${apiRoute}/${id}`);
+        const response = await axios.get(`https://stylin-tails-api.onrender.com/${id}`);
         
         if(response.data.error) {
             setError(response.data.error);
@@ -39,7 +39,7 @@ export const usePets = () => {
     const addPet = async (data) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.post(`${apiRoute}/addPet`, data);
+        const response = await axios.post(`https://stylin-tails-api.onrender.com/addPet`, data);
         
         if(response.data.error) {
             setError(response.data.error);
@@ -57,7 +57,7 @@ export const usePets = () => {
        
         setIsLoading(true);
         setError(null);
-        const response = await axios.delete(`${apiRoute}/deletePet/${user}/${id}`);
+        const response = await axios.delete(`https://stylin-tails-api.onrender.com/deletePet/${user}/${id}`);
         
         if(response.data.error) {
             setError(response.data.error);
@@ -71,7 +71,7 @@ export const usePets = () => {
     const updatePet = async (data) => {
         setIsLoading(true);
         setError(null);
-        const response = await axios.put(`${apiRoute}/updatePet`, data);
+        const response = await axios.put('https://stylin-tails-api.onrender.com/updatePet', data);
         
         if(response.data.error) {
             setError(response.data.error);
