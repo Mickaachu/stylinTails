@@ -19,9 +19,7 @@ function LoginPage() {
 
     }
 
-    useEffect(() => {
-        if(user) router.push("/dashboard")
-    }, [user])
+   
     
   return (
     <div className="flex min-h-screen justify-center items-center pt-20 lg:justify-start ">
