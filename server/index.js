@@ -15,6 +15,10 @@ app.use(cors(
     {
         origin: [
             'https://stylin-tails.vercel.app',
+            'http://localhost:3000',
+            'https://stylin-tails-mickaachu.vercel.app',
+            'https://stylin-tails-git-main-mickaachu.vercel.app',
+            'https://stylin-tails-afu2bc6fl-mickaachu.vercel.app'
         ]
     }
 ));
