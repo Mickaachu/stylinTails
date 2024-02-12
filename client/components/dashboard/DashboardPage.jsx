@@ -17,8 +17,6 @@ function DashboardPage() {
   const {handleShow, showModal, addSchedule, schedules, updateSchedule, deleteSchedule} = useSchedule()
   const { user } = useAuthContextProvider()
 
-  
- 
   return (
     <div className="pt-28 px-3 flex flex-col gap-4 justify-center items-center">
       <h1>Hi {user.user?.username}</h1>
