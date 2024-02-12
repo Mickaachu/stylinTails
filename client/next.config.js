@@ -4,7 +4,7 @@ const nextConfig = {
         return [
             {
                 source: '/:path*',
-                destination: 'stylin-tails.vercel.app/path*',
+                destination: 'https://stylin-tails-api.onrender.com/path*',
             },
         ]
     }
