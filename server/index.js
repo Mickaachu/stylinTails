@@ -15,7 +15,6 @@ app.use(cors(
     {
         origin: [
             'https://stylin-tails.vercel.app',
-            "https://stylin-tails-19xle0ixg-mickaachu.vercel.app"
         ]
     }
 ));
